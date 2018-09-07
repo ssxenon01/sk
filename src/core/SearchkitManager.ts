@@ -13,6 +13,7 @@ const map = require("lodash/map")
 const isEqual = require("lodash/isEqual")
 const get = require("lodash/get")
 const assign = require("lodash/assign")
+const uniqBy = require("lodash/uniqBy")
 
 
 export interface SearchkitOptions {
@@ -239,10 +240,10 @@ export class SearchkitManager {
   setResults(results, srcQuery?) {
     if (srcQuery && srcQuery.shouldAppendResults() && this.results != null) {
       results.hits = assign({}, results.hits, {
-        hits: [
+        hits: uniqBy([
           ...this.results.hits.hits,
           ...results.hits.hits,
-        ],
+        ],'_id'),
         hasChanged: false
       })
       let mergedResults = assign({}, this.results, {
