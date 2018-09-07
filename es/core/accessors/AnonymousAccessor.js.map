@@ -1,0 +1,1 @@
+{"version":3,"file":"AnonymousAccessor.js","sourceRoot":"","sources":["../../../src/core/accessors/AnonymousAccessor.ts"],"names":[],"mappings":"AAAA,OAAO,EAAC,QAAQ,EAAC,MAAM,YAAY,CAAC;AAEpC,MAAM,OAAO,iBAAkB,SAAQ,QAAQ;IAE7C,YAAY,gBAAgB;QAC1B,KAAK,EAAE,CAAA;QACP,IAAG,gBAAgB,EAAC;YAClB,IAAI,CAAC,gBAAgB,GAAG,gBAAgB,CAAA;SACzC;IACH,CAAC;CACF"}
