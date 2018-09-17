@@ -18,7 +18,7 @@ export class StatefulAccessor<T extends State<any>> extends Accessor {
 
   }
 
-  fromQueryObject(ob){
+  fromQueryObject(ob, _path = null){
     let value = ob[this.urlKey]
     this.state = this.state.setValue(value)
   }

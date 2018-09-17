@@ -12,7 +12,7 @@ export declare class AccessorManager {
     add(accessor: any): any;
     remove(accessor: any): void;
     getState(): any;
-    setState(state: any): void;
+    setState(state: any, path: any): void;
     notifyStateChange(oldState: any): void;
     getQueryAccessor(): BaseQueryAccessor;
     buildSharedQuery(query: any): any;

@@ -12,6 +12,7 @@ const map = require("lodash/map");
 const isEqual = require("lodash/isEqual");
 const get = require("lodash/get");
 const assign = require("lodash/assign");
+const uniqBy = require("lodash/uniqBy");
 export class SearchkitManager {
     static mock(options = {}) {
         let searchkit = new SearchkitManager("/", Object.assign({ useHistory: false, transport: new MockESTransport() }, options));
@@ -98,7 +99,7 @@ export class SearchkitManager {
     }
     _searchWhenCompleted(location) {
         this.registrationCompleted.then(() => {
-            this.searchFromUrlQuery(location.search);
+            this.searchFromUrlQuery(location);
         }).catch((e) => {
             console.error(e);
         });
@@ -108,9 +109,9 @@ export class SearchkitManager {
             this._searchWhenCompleted(this.options.getLocation());
         }
     }
-    searchFromUrlQuery(query) {
-        query = decodeObjString(query.replace(/^\?/, ""));
-        this.accessors.setState(query);
+    searchFromUrlQuery(location) {
+        const query = decodeObjString(location.search.replace(/^\?/, ""));
+        this.accessors.setState(query, location.pathname);
         return this._search();
     }
     performSearch(replaceState = false, notifyState = true) {
@@ -167,10 +168,10 @@ export class SearchkitManager {
     setResults(results, srcQuery) {
         if (srcQuery && srcQuery.shouldAppendResults() && this.results != null) {
             results.hits = assign({}, results.hits, {
-                hits: [
+                hits: uniqBy([
                     ...this.results.hits.hits,
                     ...results.hits.hits,
-                ],
+                ], '_id'),
                 hasChanged: false
             });
             let mergedResults = assign({}, this.results, {

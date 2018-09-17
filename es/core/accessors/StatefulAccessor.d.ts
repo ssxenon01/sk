@@ -7,7 +7,7 @@ export declare class StatefulAccessor<T extends State<any>> extends Accessor {
     resultsState: T;
     constructor(key: any, urlString?: any);
     onStateChange(_oldState: any): void;
-    fromQueryObject(ob: any): void;
+    fromQueryObject(ob: any, _path?: any): void;
     getQueryObject(): {
         [x: string]: any;
     };

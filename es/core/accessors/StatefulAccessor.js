@@ -8,7 +8,7 @@ export class StatefulAccessor extends Accessor {
     }
     onStateChange(_oldState) {
     }
-    fromQueryObject(ob) {
+    fromQueryObject(ob, _path = null) {
         let value = ob[this.urlKey];
         this.state = this.state.setValue(value);
     }

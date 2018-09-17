@@ -92,10 +92,10 @@ export class AccessorManager {
     }, {})
   }
 
-  setState(state){
+  setState(state, path){
     each(
       this.getStatefulAccessors(),
-      accessor=>accessor.fromQueryObject(state)
+      accessor=>accessor.fromQueryObject(state,path)
     )
   }
   notifyStateChange(oldState){

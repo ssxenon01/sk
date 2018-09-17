@@ -58,7 +58,7 @@ export declare class SearchkitManager {
     listenToHistory(): void;
     _searchWhenCompleted(location: any): void;
     runInitialSearch(): void;
-    searchFromUrlQuery(query: any): any;
+    searchFromUrlQuery(location: any): any;
     performSearch(replaceState?: boolean, notifyState?: boolean): any;
     buildSearchUrl(extraParams?: {}): string;
     reloadSearch(): any;

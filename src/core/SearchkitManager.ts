@@ -160,7 +160,7 @@ export class SearchkitManager {
 
   _searchWhenCompleted(location) {
     this.registrationCompleted.then(() => {
-      this.searchFromUrlQuery(location.search)
+      this.searchFromUrlQuery(location)
     }).catch((e) => {
       console.error(e)
     })
@@ -172,9 +172,9 @@ export class SearchkitManager {
     }
   }
 
-  searchFromUrlQuery(query) {
-    query = decodeObjString(query.replace(/^\?/, ""))
-    this.accessors.setState(query)
+  searchFromUrlQuery(location) {
+    const query = decodeObjString(location.search.replace(/^\?/, ""))
+    this.accessors.setState(query, location.pathname)
     return this._search()
   }
 
