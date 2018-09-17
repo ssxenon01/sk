@@ -12,6 +12,6 @@ export interface SearchOptions {
 export declare class QueryAccessor extends BaseQueryAccessor {
     options: SearchOptions;
     constructor(key: any, options?: {});
-    fromQueryObject(ob: any): void;
+    fromQueryObject(ob: any, _path?: any): void;
     buildSharedQuery(query: any): any;
 }

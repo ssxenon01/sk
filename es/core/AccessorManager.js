@@ -77,8 +77,8 @@ export class AccessorManager {
             return assign(state, accessor.getQueryObject());
         }, {});
     }
-    setState(state, path) {
-        each(this.getStatefulAccessors(), accessor => accessor.fromQueryObject(state, path));
+    setState(state, _path) {
+        each(this.getStatefulAccessors(), accessor => accessor.fromQueryObject(state, _path));
     }
     notifyStateChange(oldState) {
         each(this.getStatefulAccessors(), accessor => accessor.onStateChange(oldState));

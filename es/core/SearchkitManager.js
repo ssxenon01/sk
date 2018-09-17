@@ -99,7 +99,7 @@ export class SearchkitManager {
     }
     _searchWhenCompleted(location) {
         this.registrationCompleted.then(() => {
-            this.searchFromUrlQuery(location);
+            this.searchFromUrlQuery(location.search, location.pathname);
         }).catch((e) => {
             console.error(e);
         });
@@ -109,9 +109,9 @@ export class SearchkitManager {
             this._searchWhenCompleted(this.options.getLocation());
         }
     }
-    searchFromUrlQuery(location) {
-        const query = decodeObjString(location.search.replace(/^\?/, ""));
-        this.accessors.setState(query, location.pathname);
+    searchFromUrlQuery(query, _path = null) {
+        query = decodeObjString(query.replace(/^\?/, ""));
+        this.accessors.setState(query, _path);
         return this._search();
     }
     performSearch(replaceState = false, notifyState = true) {

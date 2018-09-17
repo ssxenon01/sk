@@ -25,9 +25,9 @@ export class QueryAccessor extends BaseQueryAccessor {
     this.options = options
     this.options.queryFields = this.options.queryFields || ["_all"]
   }
-  
-  fromQueryObject(ob){
-    super.fromQueryObject(ob)
+
+  fromQueryObject(ob, _path = null){
+    super.fromQueryObject(ob, _path)
     if (this.options.onQueryStateChange){
       this.options.onQueryStateChange()
     }
