@@ -1,6 +1,6 @@
 {
-  "name": "searchkit",
-  "version": "2.3.1-alpha.3",
+  "name": "@shoppy.mn/searchkit",
+  "version": "1.0.0",
   "description": "A suite of react components to help create a UI quickly for elasticsearch",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -33,18 +33,8 @@
   },
   "authors": [
     {
-      "name": "Joseph McElroy",
-      "email": "phoey1@gmail.com"
-    },
-    {
-      "name": "Siavash Etemadieh",
-      "email": "ssetem@gmail.com"
-    }
-  ],
-  "contributors": [
-    {
-      "name": "Gregory Potdevin",
-      "email": "gregory.potdevin@gmail.com"
+      "name": "Gundsambuu Natsagdorj",
+      "email": "gundee@shoppy.mn"
     }
   ],
   "license": "Apache-2.0",
